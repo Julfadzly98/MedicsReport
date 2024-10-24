@@ -1,5 +1,3 @@
-<!----https://img.freepik.com/free-vector/hospital-logo-design-vector-medical-cross_53876-136743.jpg?semt=ais_hybrid----->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +6,81 @@
     <title>Medical Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+    <style>
+        /* Additional CSS for Report Section */
+        .report-section {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background for report */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px; /* Maximum width for report */
+            text-align: left; /* Align text to the left */
+            border: 1px solid #dee2e6; /* Light border for report */
+        }
+
+        .report-header {
+            text-align: center; /* Center align for header */
+            margin-bottom: 20px; /* Space below header */
+        }
+
+        .report-header img {
+            max-width: 150px; /* Logo size */
+            margin-bottom: 10px; /* Space below logo */
+        }
+
+        .report-header h2 {
+            font-size: 24px;
+            margin: 5px 0; /* Space above and below title */
+            color: #343a40; /* Darker text color */
+        }
+
+        .report-header p {
+            font-size: 16px;
+            margin: 2px 0; /* Space between patient details */
+        }
+
+        .report-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6; /* Light border color */
+        }
+
+        th {
+            background-color: #007bff; /* Primary color for header */
+            color: white; /* White text */
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; /* Hover effect for rows */
+        }
+
+        @media print {
+            body {
+                margin: 0; /* Remove body margin for print */
+            }
+
+            .report-section {
+                max-width: none; /* Allow full width for printing */
+                box-shadow: none; /* Remove shadow for print */
+            }
+
+            table {
+                page-break-inside: auto; /* Prevent page breaks inside table */
+            }
+
+            tr {
+                page-break-inside: avoid; /* Prevent page breaks inside rows */
+                page-break-after: auto; /* Allow page breaks after rows */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -33,6 +106,49 @@
         </div>
     </div>
 
+    <!-- Report View Section -->
+    <div class="report-section">
+        <div class="report-header">
+            <img src="https://img.freepik.com/free-vector/hospital-logo-design-vector-medical-cross_53876-136743.jpg?semt=ais_hybrid" alt="Medical Logo">
+            <h2>Medical Report</h2>
+            <p>Date: <strong>2024-10-24</strong></p>
+            <p>Patient Name: <strong>John Doe</strong></p>
+            <p>Patient ID: <strong>P12345</strong></p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Heart BPM</th>
+                    <th>Temperature</th>
+                    <th>Oxygen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-10-24</td>
+                    <td>0</td>
+                    <td>29</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2024-10-24</td>
+                    <td>0</td>
+                    <td>29</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2024-10-24</td>
+                    <td>0</td>
+                    <td>29</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Doctor's Remarks: The patient is responding well to treatment. Further monitoring is advised.</p>
+    </div>
+
     <script>
         // Chart 1: Patient Health Statistics
         var ctx1 = document.getElementById('chart1').getContext('2d');
@@ -42,7 +158,7 @@
                 labels: ['Blood Pressure'],
                 datasets: [{
                     label: 'Average Values',
-                    data: [10],
+                    data: [0],
                     backgroundColor: 'rgba(0, 123, 255, 0.6)',
                     borderColor: 'rgba(0, 123, 255, 1)',
                     borderWidth: 1
@@ -57,16 +173,16 @@
             }
         });
 
-        // Doughnut Chart: Medication Usage
+        // Doughnut Chart: Temperature Reading
         var ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
-        var painReliefValue = Math.floor(34); // Random value between 1 and 100
+        var temperatureValue = Math.floor(29); // Fixed value for Temperature
         var doughnutChart = new Chart(ctxDoughnut, {
             type: 'doughnut',
             data: {
                 labels: ['Temperature', 'Remaining'],
                 datasets: [{
                     label: 'Temp',
-                    data: [painReliefValue, 100 - painReliefValue], // Using the random value for Pain Relief
+                    data: [temperatureValue, 100 - temperatureValue], // Using the fixed value for Temperature
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.6)',
                         'rgba(204, 204, 204, 0.6)' // Color for remaining
@@ -83,15 +199,15 @@
             }
         });
 
-        // Chart 3: Hospital Admissions
+        // Chart 3: Oxygen Reading
         var ctx3 = document.getElementById('chart3').getContext('2d');
         var chart3 = new Chart(ctx3, {
             type: 'line',
             data: {
-                labels: ['2:00', '3:00', '4:00', '0', '6:00'],
+                labels: ['2:00', '3:00', '4:00', '5:00', '6:00'],
                 datasets: [{
                     label: 'Oxygen',
-                    data: [50, 70, 60, 80, 90],
+                    data: [0, 0, 0, 0, 0],
                     backgroundColor: 'rgba(153, 102, 255, 0.6)',
                     borderColor: 'rgba(153, 102, 255, 1)',
                     fill: true,
