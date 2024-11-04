@@ -111,9 +111,9 @@
         <div class="report-header">
             <img src="https://img.freepik.com/free-vector/hospital-logo-design-vector-medical-cross_53876-136743.jpg?semt=ais_hybrid" alt="Medical Logo">
             <h2>Medical Report</h2>
-            <p>Date: <strong>2024-10-24</strong></p>
-            <p>Patient Name: <strong>John Doe</strong></p>
-            <p>Patient ID: <strong>P12345</strong></p>
+            <p>Date: <strong>00-00-00</strong></p>
+            <p>Patient Name: <strong>Empty</strong></p>
+            <p>Patient ID: <strong>0000</strong></p>
         </div>
 
         <table>
@@ -127,21 +127,21 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>2024-10-31</td>
-                    <td>67</td>
-                    <td>0</td>
+                    <td>2024-11-4</td>
+                    <td>253</td>
+                    <td>25</td>
                     <td>94</td>
                 </tr>
                 <tr>
-                    <td>2024-10-31</td>
-                    <td>67</td>
-                    <td>0</td>
+                    <td>2024-11-4</td>
+                    <td>253</td>
+                    <td>25</td>
                     <td>94</td>
                 </tr>
                 <tr>
-                    <td>2024-10-31</td>
-                    <td>67</td>
-                    <td>0</td>
+                    <td>2024-11-4</td>
+                    <td>253</td>
+                    <td>25</td>
                     <td>94</td>
                 </tr>
             </tbody>
@@ -158,7 +158,7 @@
                 labels: ['Blood Pressure'],
                 datasets: [{
                     label: 'Average Values',
-                    data: [67],
+                    data: [253],
                     backgroundColor: 'rgba(0, 123, 255, 0.6)',
                     borderColor: 'rgba(0, 123, 255, 1)',
                     borderWidth: 1
@@ -175,7 +175,7 @@
 
         // Doughnut Chart: Temperature Reading
         var ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
-        var temperatureValue = Math.floor(0); // Fixed value for Temperature
+        var temperatureValue = Math.floor(25); // Fixed value for Temperature
         var doughnutChart = new Chart(ctxDoughnut, {
             type: 'doughnut',
             data: {
